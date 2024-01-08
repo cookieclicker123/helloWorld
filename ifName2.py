@@ -1,0 +1,3 @@
+import ifNameEqualsMain
+
+ifNameEqualsMain.hello()
