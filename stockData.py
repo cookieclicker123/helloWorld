@@ -29,13 +29,28 @@ fig = go.Figure(data=[go.Candlestick(x=stock_data1.index,
                 open=stock_data1['Open'],
                 high=stock_data1['High'],
                 low=stock_data1['Low'],
-                close=stock_data1['Close'])])
+                close=stock_data1['Close'],
+                name=stockSymbol1)])
 
 # Customize the layout
 fig.update_layout(
     xaxis_title='Date',
     yaxis_title='Stock Price (USD)',
-    title=f'{stockSymbol1} Candlestick Chart'
+    title=f'{stockSymbol1} and {stockSymbol2} Candlestick Chart'
+)
+
+fig.add_trace(go.Candlestick(x=stock_data2.index,
+                open=stock_data2['Open'],
+                high=stock_data2['High'],
+                low=stock_data2['Low'],
+                close=stock_data2['Close'],
+                name=stockSymbol2))  # Add a name for the legend
+
+# Customize the layout
+fig.update_layout(
+    xaxis_title='Date',
+    yaxis_title='Stock Price (USD)',
+    legend_title='Stock Symbol',
 )
 
 # Show the candlestick chart
